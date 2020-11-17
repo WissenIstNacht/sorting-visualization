@@ -22,17 +22,11 @@
     <link
         href="https://uploads-ssl.webflow.com/img/webclip.png"
         rel="apple-touch-icon">
-    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
     <script src="src/sketch.js"></script>
     <script src="src/BubbleSort.js"></script>
     <script src="src/StateManager.js"></script>
     <style>
-		body {
-      margin:0;
-			margin-left:45px;
-			padding:0;
-			overflow: hidden;
-		}
 		canvas {
 			margin:auto;
 		}
@@ -140,15 +134,11 @@
                     </div>
                     <div>
                         <div class="w-row">
-                            <div
-                                class="column-4 w-col w-col-6">
-                                <a id="b_start"
-                                    class="button w-button w--current">Start</a>
+                            <div class="column-4 w-col w-col-6">
+                                <button type="button" id="b_run" class="button-3 w-button">Run</button>
                             </div>
-                            <div
-                                class="column-5 w-col w-col-6">
-                                <a id="b_stop" href="#"
-                                    class="button-3 w-button">Stop</a>
+                            <div class="column-5 w-col w-col-6">
+                                <button type="button" id="b_reset" class="button-3 w-button">Reset</button>
                             </div>
                         </div>
                     </div>

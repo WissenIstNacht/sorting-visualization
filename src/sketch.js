@@ -6,21 +6,19 @@
  * 
  */
 
-// inputs
-let b_start, b_stop;
-let rb_automatic, rb_manual;
-let dd_algo;
-let in_arrayLength;
-let canvasHolder;
-let s;
-
 function setup() {
-    // initialize inputs
-    b_start = select("#b_start");
-    b_start.mousePressed(() => { s.drawing = true; })
+    s = new StateManager();
+    RED = color(255, 152, 178);
+    GREEN = color(152, 255, 204); 
+    BLUE = color(152, 229, 255);
 
-    b_stop = select("#b_stop");
-    b_stop.mousePressed(() => { s.drawing = false; })
+    // initialize inputs
+    b_run = document.getElementById('b_run');
+    b_run.onclick = () => { s.startPressed(); }
+
+    b_reset = document.getElementById('b_reset')
+    b_reset.onclick = () => { s.resetPressed(); }
+    b_reset.disabled = true
 
     rb_automatic = select("#rb_automatic");
     rb_manual = select("#rb_manual");
@@ -33,13 +31,12 @@ function setup() {
     canvas.parent(canvasHolder);
     // background(millis() % 255);
     
-    sorter = new BubbleSort(10);
-    s = new StateManager();
-    frameRate(2)
+    // sorter = new BubbleSort(10);
+
 }
 
 function draw() {
-    if (s.drawing) {
-        sorter.step();
+    if (s.is_running) {
+        s.sorter.step();
     }
 }
