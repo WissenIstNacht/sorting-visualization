@@ -49,15 +49,15 @@ class BubbleSort{
             this.action = 1;
             break;
         case 1:
-            this.render(this.indx, BLUE, -1, null);
+            this.render(this.indx, s.BLUE, -1, null);
             this.action = 2;
             break;
         case 2:
             if (this.a[this.indx] > this.a[this.indx + 1]) {
-                this.render(this.indx, BLUE, this.indx + 1, RED);
+                this.render(this.indx, s.BLUE, this.indx + 1, s.RED);
                 this.action = 3;
             } else {
-                this.render(this.indx, BLUE, this.indx + 1, GREEN);
+                this.render(this.indx, s.BLUE, this.indx + 1, s.GREEN);
                 this.action = 0;
                 this.indx++;
             }
@@ -67,7 +67,7 @@ class BubbleSort{
             this.a[this.indx] = this.a[this.indx + 1];
             this.a[this.indx + 1] = t;
             
-            this.render(this.indx, GREEN, this.indx+1, GREEN);
+            this.render(this.indx, s.GREEN, this.indx+1, s.GREEN);
             this.action = 0;
             this.indx++;
             break;
@@ -92,7 +92,7 @@ class BubbleSort{
             } else if (k == indx2) {
                 fill(col2);
             } else if (k >= this.lowest) {
-                fill(GREEN);
+                fill(s.GREEN);
             }else {
                 fill(200);
             }
