@@ -352,21 +352,25 @@ h6 {
 }
 
 h1 {
-  font-size: 38px;
+  font-size: 40px;
   line-height: 44px;
+  text-orientation: center;
   margin-top: 20px
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 30px;
   line-height: 36px;
   margin-top: 20px
 }
 
 h3 {
-  font-size: 24px;
+  font-weight: normal;
+  /* font-style: italic; */
+  font-size: 20px;
   line-height: 30px;
-  margin-top: 20px
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 h4 {
@@ -2382,7 +2386,7 @@ textarea.w-select {
 
 .heading {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   text-transform: none;
 }
@@ -2440,6 +2444,7 @@ textarea.w-select {
 .container-2 {
   margin-top: 30px;
   margin-bottom: 50px;
+  padding-top: 20px;
   border-top: 1px solid #000;
 }
 

@@ -10,6 +10,10 @@
 
 class BubbleSort {
 
+
+  // After pass i, the largest element of the unsorted part is guaranteed to be at the
+  // i-th rightest index. Lowest denotes the currently lowest correctly placed element.
+  // I.e., lowest == this.l - i, where i are the passes starting at 0.
   constructor(arrayLength) {
     this.a = [];
     this.l = arrayLength;
@@ -23,13 +27,6 @@ class BubbleSort {
       this.a.push(this.xs[r]);
       this.xs.splice(r, 1);
     }
-
-    // Bubblesort works in passes. After the first pass the array's largest
-    // element is guaranteed to be at the rightmost index. This leaves
-    // all other indeces unsorted. After pass i, the largest
-    // element of the unsorted part is guaranteed to be at the i-th rightest
-    // index. Lowest denotes the currently lowest correctly placed elemene.
-    // I.e., lowest == this.l - i, where i are the passes starting at 0.
     this.lowest = this.l;
     this.indx = 0;
     this.action = 0;
@@ -80,6 +77,7 @@ class BubbleSort {
     }
   }
 
+  // Draws a rectangle representing an element on the canvas.
   render(indx1, col1, indx2, col2) {
     let r = 4;
     let unit = width * 0.9 / (this.l * (r + 1) - 1);

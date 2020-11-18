@@ -1,9 +1,11 @@
 /**
  * @author WissenIstNacht
- * Date: 
  * 
- * This class 
+ * This class implements a state machine that manages the page's state. 
  * 
+ * The machine manages 3 states: An idle state (0), a running state (1) and a
+ * pausing state(1). The next state is determined as a function of the user's 
+ * press of a button and the current state. 
  */
 
 class StateManager {
@@ -16,9 +18,10 @@ class StateManager {
     frameRate(2)
   }
 
+  // The following methods change the page's state
 
   idle2run() {
-    // collect input data
+    // TODO collect input data
     this.sorter = new BubbleSort(10);
     this.state = 1;
     b_reset.disabled = false;
@@ -45,6 +48,10 @@ class StateManager {
     b_run.textContent = "Run";
     background("white");
   }
+
+
+  // The following methods determine the next state based on the user input and
+  // the current state.
 
   pressedRun() {
     switch (this.state) {
