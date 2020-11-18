@@ -218,9 +218,6 @@ th {
   padding: 0
 }
 
-/* ==========================================================================
-   Start of base Webflow CSS - If you're looking for some ultra-clean CSS, skip the boilerplate and see the unminified code below.
-   ========================================================================== */
 @font-face {
   font-family: 'webflow-icons';
   src: url("data:application/x-font-ttf;charset=utf-8;base64,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") format('truetype');
@@ -343,102 +340,6 @@ html[data-w-dynpage] [data-w-cloak] {
   color: transparent !important
 }
 
-.w-webflow-badge,
-.w-webflow-badge * {
-  position: static;
-  left: auto;
-  top: auto;
-  right: auto;
-  bottom: auto;
-  z-index: auto;
-  display: block;
-  visibility: visible;
-  overflow: visible;
-  overflow-x: visible;
-  overflow-y: visible;
-  box-sizing: border-box;
-  width: auto;
-  height: auto;
-  max-height: none;
-  max-width: none;
-  min-height: 0;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  float: none;
-  clear: none;
-  border: 0 none transparent;
-  border-radius: 0;
-  background: none;
-  background-image: none;
-  background-position: 0 0;
-  background-size: auto auto;
-  background-repeat: repeat;
-  background-origin: padding-box;
-  background-clip: border-box;
-  background-attachment: scroll;
-  background-color: transparent;
-  box-shadow: none;
-  opacity: 1;
-  transform: none;
-  transition: none;
-  direction: ltr;
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  font-style: inherit;
-  font-variant: inherit;
-  text-align: inherit;
-  letter-spacing: inherit;
-  text-decoration: inherit;
-  text-indent: 0;
-  text-transform: inherit;
-  list-style-type: disc;
-  text-shadow: none;
-  font-smoothing: auto;
-  vertical-align: baseline;
-  cursor: inherit;
-  white-space: inherit;
-  word-break: normal;
-  word-spacing: normal;
-  word-wrap: normal
-}
-
-.w-webflow-badge {
-  position: fixed !important;
-  display: inline-block !important;
-  visibility: visible !important;
-  z-index: 2147483647 !important;
-  top: auto !important;
-  right: 12px !important;
-  bottom: 12px !important;
-  left: auto !important;
-  color: #AAADB0 !important;
-  background-color: #fff !important;
-  border-radius: 3px !important;
-  padding: 6px 8px 6px 6px !important;
-  font-size: 12px !important;
-  opacity: 1 !important;
-  line-height: 14px !important;
-  text-decoration: none !important;
-  transform: none !important;
-  margin: 0 !important;
-  width: auto !important;
-  height: auto !important;
-  overflow: visible !important;
-  white-space: nowrap;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
-  cursor: pointer
-}
-
-.w-webflow-badge>img {
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  vertical-align: middle !important
-}
 
 h1,
 h2,
@@ -1412,6 +1313,15 @@ textarea.w-select {
   background-color: #fff
 }
 
+.w-slider-dot:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #fff
+}
+
+.w-slider-dot:focus.w-active {
+  box-shadow: none
+}
+
 .w-slider-arrow-left,
 .w-slider-arrow-right {
   position: absolute;
@@ -1440,6 +1350,11 @@ textarea.w-select {
   position: absolute
 }
 
+.w-slider-arrow-left:focus,
+.w-slider-arrow-right:focus {
+  outline: 0
+}
+
 .w-slider-arrow-left {
   z-index: 3;
   right: auto
@@ -1459,6 +1374,17 @@ textarea.w-select {
   margin: auto;
   width: 1em;
   height: 1em
+}
+
+.w-slider-aria-label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px
 }
 
 .w-dropdown {
@@ -1494,6 +1420,10 @@ textarea.w-select {
   padding-right: 40px
 }
 
+.w-dropdown-toggle:focus {
+  outline: 0
+}
+
 .w-icon-dropdown-toggle {
   position: absolute;
   top: 0;
@@ -1524,6 +1454,10 @@ textarea.w-select {
 
 .w-dropdown-link.w--current {
   color: #0082f3
+}
+
+.w-dropdown-link:focus {
+  outline: 0
 }
 
 @media screen and (max-width:767px) {
@@ -2094,6 +2028,10 @@ textarea.w-select {
   user-select: none
 }
 
+.w-nav-button:focus {
+  outline: 0
+}
+
 .w-nav-button.w--open {
   background-color: #C8C8C8;
   color: white
@@ -2191,6 +2129,10 @@ textarea.w-select {
   background-color: #C8C8C8
 }
 
+.w-tab-link:focus {
+  outline: 0
+}
+
 .w-tab-content {
   position: relative;
   display: block;
@@ -2243,9 +2185,6 @@ textarea.w-select {
   display: none !important
 }
 
-/* ==========================================================================
-   Start of custom Webflow CSS
-   ========================================================================== */
 .w-form-formradioinput--inputType-custom {
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -2280,6 +2219,85 @@ textarea.w-select {
   border-bottom-color: #3898ec;
   border-left-color: #3898ec;
   border-right-color: #3898ec;
+}
+
+.w-checkbox {
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 20px;
+}
+
+.w-checkbox::before {
+  content: ' ';
+  display: table;
+  -ms-grid-column-span: 1;
+  grid-column-end: 2;
+  -ms-grid-column: 1;
+  grid-column-start: 1;
+  -ms-grid-row-span: 1;
+  grid-row-end: 2;
+  -ms-grid-row: 1;
+  grid-row-start: 1;
+}
+
+.w-checkbox::after {
+  content: ' ';
+  display: table;
+  -ms-grid-column-span: 1;
+  grid-column-end: 2;
+  -ms-grid-column: 1;
+  grid-column-start: 1;
+  -ms-grid-row-span: 1;
+  grid-row-end: 2;
+  -ms-grid-row: 1;
+  grid-row-start: 1;
+  clear: both;
+}
+
+.w-checkbox-input {
+  float: left;
+  margin-bottom: 0px;
+  margin-left: -20px;
+  margin-right: 0px;
+  margin-top: 4px;
+  line-height: normal;
+}
+
+.w-checkbox-input--inputType-custom {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-color: #ccc;
+  border-bottom-color: #ccc;
+  border-left-color: #ccc;
+  border-right-color: #ccc;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  width: 12px;
+  height: 12px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.w-checkbox-input--inputType-custom.w--redirected-checked {
+  background-color: #3898ec;
+  border-top-color: #3898ec;
+  border-bottom-color: #3898ec;
+  border-left-color: #3898ec;
+  border-right-color: #3898ec;
+  background-image: url(https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.w-checkbox-input--inputType-custom.w--redirected-focus {
+  box-shadow: 0px 0px 3px 1px #3898ec;
 }
 
 .brand {
@@ -2343,7 +2361,7 @@ textarea.w-select {
 }
 
 .section-2 {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -2420,7 +2438,8 @@ textarea.w-select {
 }
 
 .container-2 {
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   border-top: 1px solid #000;
 }
 
@@ -2488,6 +2507,7 @@ textarea.w-select {
 }
 
 .navbar {
+  /* Change property to "none" in order to remove black line under nav bar */
   border-bottom: 1px solid #000;
 }
 
@@ -2503,6 +2523,18 @@ textarea.w-select {
   margin: 10px 10px auto;
   width: 100px;
   text-align: center;
+}
+
+.brand-2 {
+  margin-left: 13px;
+}
+
+.brand-2.w--current {
+  margin-left: 30px;
+}
+
+.nav-link-2 {
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 991px) {
