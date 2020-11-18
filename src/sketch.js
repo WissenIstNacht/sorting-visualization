@@ -29,10 +29,6 @@ function setup() {
     canvasHolder = select("#canvasHolder")
     canvas = createCanvas(600, 400);
     canvas.parent(canvasHolder);
-    // background(millis() % 255);
-    
-    // sorter = new BubbleSort(10);
-
 }
 
 function draw() {

@@ -16,7 +16,7 @@ class StateManager {
     frameRate(2)
   }
 
-    
+
   idle2run() {
     // collect input data
     this.sorter = new BubbleSort(10);
