@@ -14,10 +14,10 @@ function setup() {
 
     // initialize inputs
     b_run = document.getElementById('b_run');
-    b_run.onclick = () => { s.startPressed(); }
+    b_run.onclick = () => { s.pressedRun(); }
 
     b_reset = document.getElementById('b_reset')
-    b_reset.onclick = () => { s.resetPressed(); }
+    b_reset.onclick = () => { s.pressedReset(); }
     b_reset.disabled = true
 
     rb_automatic = select("#rb_automatic");

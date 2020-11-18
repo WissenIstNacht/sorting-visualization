@@ -8,29 +8,62 @@
 
 class StateManager {
 
-    constructor() {
-        this.is_running = false;
-        this.sorter = new BubbleSort(10);
-        this.BACKGROUND = color("#DEDEDE");
-        frameRate(2)
-    }
+  constructor() {
+    this.state = 0;
+    this.is_running = false;
+    this.sorter = null;
+    this.BACKGROUND = color("#DEDEDE");
+    frameRate(2)
+  }
 
-    startPressed() {
-        b_reset.disabled = false;
-        if (this.is_running) {
-            this.is_running = false;
-            b_run.textContent = "Run";
-        } else {
-            this.is_running = true;
-            b_run.textContent = "Pause";
-        }
-    }
+    
+  idle2run() {
+    // collect input data
+    this.sorter = new BubbleSort(10);
+    this.state = 1;
+    b_reset.disabled = false;
+    this.is_running = true;
+    b_run.textContent = "Pause";
+  }
 
-    resetPressed() {
-        this.is_running = false;
-        b_reset.disabled;
-        b_run.textContent = "Run";
-        background("white");
-        this.sorter = new BubbleSort(10);
+  run2pause() {
+    this.state = 2;
+    this.is_running = false;
+    b_run.textContent = "Continue";
+  }
+
+  pause2run() {
+    this.state = 1;
+    this.is_running = true;
+    b_run.textContent = "Pause";
+  }
+
+  any2idle() {
+    this.state = 0;
+    this.is_running = false;
+    b_reset.disabled;
+    b_run.textContent = "Run";
+    background("white");
+  }
+
+  pressedRun() {
+    switch (this.state) {
+      case 0:
+        this.idle2run()
+        break;
+      case 1:
+        this.run2pause()
+        break;
+      case 2:
+        this.pause2run()
+        break;
+      default:
+        console.error("State machine in undefined state!")
+        break;
     }
+  }
+
+  pressedReset() {
+    this.any2idle()
+  }
 }
