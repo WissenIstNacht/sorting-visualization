@@ -106,11 +106,16 @@ function bubbleSort(a) {
   for (let j = 0; j < a.length; j++) {
     for (let i = 0; i < a.length - j - 1; i++) {
       if (a[i] > a[i + 1]) {
-        let t = a[i];
-        a[i] = a[i + 1];
-        a[i + 1] = t;
+        a = swap(a, i, i + 1);
       }
     }
   }
   return a;
+}
+
+function swap(a, i, j) {
+  let t = a[i];
+  a[i] = a[j];
+  a[j] = t;
+  return a
 }
