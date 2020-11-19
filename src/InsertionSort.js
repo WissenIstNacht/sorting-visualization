@@ -5,6 +5,9 @@
  *
  */
 
+
+
+
 function insertionSort(a) {
   let n = a.length
   for (let i = 0; i < n; i++) {

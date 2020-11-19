@@ -8,25 +8,13 @@
  * 
  */
 
-class BubbleSort {
-
+class BubbleSort extends SortingAlgorithm {
 
   // After pass i, the largest element of the unsorted part is guaranteed to be at the
   // i-th rightest index. Lowest denotes the currently lowest correctly placed element.
   // I.e., lowest == this.l - i, where i are the passes starting at 0.
   constructor(arrayLength) {
-    this.a = [];
-    this.l = arrayLength;
-
-    this.xs = [];
-    for (let i = 1; i <= this.l; i++) {
-      this.xs.push(i);
-    }
-    for (let i = this.l; i > 0; i--) {
-      let r = floor(i * random());
-      this.a.push(this.xs[r]);
-      this.xs.splice(r, 1);
-    }
+    super(arrayLength)
     this.lowest = this.l;
     this.indx = 0;
     this.action = 0;
@@ -42,19 +30,24 @@ class BubbleSort {
 
     switch (this.action) {
       case 0:
-        this.render(-1, null, -1, null);
+        this.render(null, null);
         this.action = 1;
         break;
       case 1:
-        this.render(this.indx, BLUE, -1, null);
+        let se = new ArrayElement(this.indx, BLUE)
+        this.render(se, null);
         this.action = 2;
         break;
       case 2:
         if (this.a[this.indx] > this.a[this.indx + 1]) {
-          this.render(this.indx, BLUE, this.indx + 1, RED);
+          let se1 = new ArrayElement(this.indx, BLUE)
+          let se2 = new ArrayElement(this.indx + 1, RED)
+          this.render(se1, se2);
           this.action = 3;
         } else {
-          this.render(this.indx, BLUE, this.indx + 1, GREEN);
+          let se1 = new ArrayElement(this.indx, BLUE)
+          let se2 = new ArrayElement(this.indx + 1, GREEN)
+          this.render(se1, se2);
           this.action = 0;
           this.indx++;
         }
@@ -64,7 +57,9 @@ class BubbleSort {
         this.a[this.indx] = this.a[this.indx + 1];
         this.a[this.indx + 1] = t;
 
-        this.render(this.indx, GREEN, this.indx + 1, GREEN);
+        let se1 = new ArrayElement(this.indx, GREEN)
+        let se2 = new ArrayElement(this.indx + 1, GREEN)
+        this.render(se1, se2);
         this.action = 0;
         this.indx++;
         break;
@@ -74,29 +69,6 @@ class BubbleSort {
     if (this.indx == this.lowest - 1) {
       this.indx = 0;
       this.lowest--;
-    }
-  }
-
-  // Draws a rectangle representing an element on the canvas.
-  render(indx1, col1, indx2, col2) {
-    let r = 4;
-    let unit = width * 0.9 / (this.l * (r + 1) - 1);
-    let rect_y = height / 20;
-    let rect_w = r * unit;
-
-    for (let k = 0; k < this.l; k++) {
-      if (k == indx1) {
-        fill(col1);
-      } else if (k == indx2) {
-        fill(col2);
-      } else if (k >= this.lowest) {
-        fill(GREEN);
-      } else {
-        fill(200);
-      }
-      let rect_x = width / 20 + k * (r + 1) * unit;
-      let rect_h = map(this.a[k], 1, this.l, height / 20, 9 * height / 10);
-      rect(rect_x, rect_y, rect_w, rect_h);
     }
   }
 }
