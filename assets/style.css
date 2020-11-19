@@ -352,7 +352,7 @@ h6 {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 44px;
   line-height: 44px;
   text-orientation: center;
   margin-top: 20px
@@ -2525,7 +2525,8 @@ textarea.w-select {
 }
 
 .button-3 {
-  margin: 10px 10px auto;
+  margin-left: 0px;
+  margin: 10px auto;
   width: 100px;
   text-align: center;
 }

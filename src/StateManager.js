@@ -21,8 +21,14 @@ class StateManager {
   // The following methods change the page's state
 
   idle2run() {
-    // TODO collect input data
-    this.sorter = new BubbleSort(10);
+    let numb_Elements = document.getElementById("tf_arraySize").value
+    if (numb_Elements === "") {
+      // if text field is empty when run is pressed, visualization falls back to default
+      // of 10 elemensts. 
+      this.sorter = new BubbleSort(10);
+    } else {
+      this.sorter = new BubbleSort(numb_Elements);
+    }
     this.state = 1;
     b_reset.disabled = false;
     this.is_running = true;

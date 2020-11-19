@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <title>Sorting</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link rel="icon" href="assets/favicon.ico">
   <link href="assets/style.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
   <script src="src/sketch.js"></script>
@@ -15,7 +16,8 @@
 
 <body class="body">
   <div data-collapse="medium" data-animation="over-right" data-duration="400" role="banner" class="navbar w-nav">
-    <div class="w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
+    <div class="w-nav-button" style="-webkit-user-select: text;" aria-label="menu"
+      role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
       <div class="w-icon-nav-menu"></div>
     </div>
     <nav role="navigation" class="w-nav-menu">
@@ -52,17 +54,9 @@
               <option value="quickSort">QuickSort</option>
             </select>
             <label for="name-3" id="lbl_arraySize" class="field-label-2">Array Size</label>
-            <input type="text" class="w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="between 5 and 20" id="if_arraySize" required="">
-            <label for="name" id="lbl_animation" class="field-label-2">Animation</label>
-            <label id="rb_animate" class="w-radio">
-              <input type="radio" data-name="animation" id="radio" name="animation" value="Radio" class="w-form-formradioinput w-radio-input">
-              <span class="w-form-label">Automatic</span>
-            </label>
-            <label class="w-radio">
-              <input type="radio" data-name="animation" id="radio-2" name="animation" value="Radio" class="w-form-formradioinput w-radio-input">
-              <span id="rb_manual" class="w-form-label">Manual
-              </span>
-            </label>
+            <input type="number" class="w-input" maxlength="256" name="field-3"
+              data-name="Field 3" placeholder="between 5 and 20" id="tf_arraySize"
+              required="" min="5" max="20" value="10">
           </div>
           <div>
             <div class="w-row">
@@ -96,7 +90,7 @@
         elements is swapped. At some point during the first pass, the largest element must
         be swapped with some neighbour. And the again, until it reaches the end. This
         procedure is the repeated. I.e., after the second pass, the second largest element
-        is correctly placed as second to last element on the right. 
+        is correctly placed as second to last element on the right.
       </p>
       <p>
         This notion of letting the largest elements incrementally rise to their correct

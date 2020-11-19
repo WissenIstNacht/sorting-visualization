@@ -90,7 +90,7 @@ class BubbleSort {
       } else if (k == indx2) {
         fill(col2);
       } else if (k >= this.lowest) {
-        fill(s.GREEN);
+        fill(GREEN);
       } else {
         fill(200);
       }
