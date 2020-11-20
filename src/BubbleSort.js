@@ -2,10 +2,8 @@
  * @author WissenIstNacht
  * Date: 25-02-2020
  * 
- * This class implements bubbleSort s.t. each step of the algorithm can be
- * viualized using a drawing loop. Given an (unsorted) array, the algorithm
- * needs to be advanced through each step using the step() function. 
- * 
+ * This file contains the BubbleSort class. It implements the bubblesort algorithm in a
+ * series of steps that can be visualized.
  */
 
 class BubbleSort extends SortingAlgorithm {
@@ -20,6 +18,8 @@ class BubbleSort extends SortingAlgorithm {
     this.action = 0;
   }
 
+  /** Strepwise implementation of bubblesort algorithm
+   */
   step() {
     background(255);
     scale(1, -1);
@@ -76,6 +76,12 @@ class BubbleSort extends SortingAlgorithm {
 }
 
 
+/** Simple implementation of bubblesort
+ * 
+ * @param {array} a array that's to be sorted
+ * 
+ * @returns {array} sorted array.
+ */
 function bubbleSort(a) {
   for (let j = 0; j < a.length; j++) {
     for (let i = 0; i < a.length - j - 1; i++) {
@@ -87,6 +93,14 @@ function bubbleSort(a) {
   return a;
 }
 
+/** Swaps the location of two elements in an array
+ * 
+ * @param {array} a
+ * @param {number} i Location of element in array
+ * @param {number} j Location of element in array
+ * 
+ * @returns {array} sorted array.
+ */
 function swap(a, i, j) {
   let t = a[i];
   a[i] = a[j];

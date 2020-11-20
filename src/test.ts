@@ -1,4 +1,7 @@
-let x: number = 1;
-let y: number = 1;
+class SomeClass {
+  value;
 
-console.log(x+y);
+  constructor(v) {
+    this.value = v;
+  }
+}

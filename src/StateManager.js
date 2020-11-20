@@ -22,12 +22,20 @@ class StateManager {
 
   idle2run() {
     let numb_Elements = document.getElementById("tf_arraySize").value
-    if (numb_Elements === "") {
-      // if text field is empty when run is pressed, visualization falls back to default
-      // of 10 elemensts. 
-      this.sorter = new InsertionSort(10);
-    } else {
-      this.sorter = new InsertionSort(numb_Elements);
+    // if text field is empty when run is pressed, visualization falls back to default
+    // of 10 elemensts. 
+    numb_Elements = numb_Elements === "" ? 10 : numb_Elements
+
+    let algo_type = document.getElementById("dd_form").value
+    switch (algo_type) {
+      case "bubbleSort":
+        this.sorter = new BubbleSort(numb_Elements)
+        break;
+      case "insertionSort":
+        this.sorter = new InsertionSort(numb_Elements)
+        break;
+      default:
+        break;
     }
     this.state = 1;
     b_reset.disabled = false;

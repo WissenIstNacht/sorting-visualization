@@ -1,15 +1,12 @@
 /**
  * @author WissenIstNacht
  *
- * This file 
- *
+ * This file contains the InsertionSort class. It implements the bubblesort algorithm in a
+ * series of steps that can be visualized.
  */
 
 class InsertionSort extends SortingAlgorithm {
 
-  // After pass i, the largest element of the unsorted part is guaranteed to be at the
-  // i-th rightest index. Lowest denotes the currently lowest correctly placed element.
-  // I.e., lowest == this.l - i, where i are the passes starting at 0.
   constructor(arrayLength) {
     super(arrayLength)
     this.highest = 1;

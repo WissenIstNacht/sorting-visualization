@@ -43,7 +43,7 @@ class SortingAlgorithm {
    * @param {ArrayElement} special_elem2 Second highlighted element
    */
   render(special_elem1, special_elem2) {
-    // get indices there are special elements to highlight. 
+    // get indices if there are special elements to highlight. 
     let indx1 = special_elem1 ? special_elem1.index : -1
     let indx2 = special_elem2 ? special_elem2.index : -1
 
