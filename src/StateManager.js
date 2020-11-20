@@ -25,9 +25,9 @@ class StateManager {
     if (numb_Elements === "") {
       // if text field is empty when run is pressed, visualization falls back to default
       // of 10 elemensts. 
-      this.sorter = new BubbleSort(10);
+      this.sorter = new InsertionSort(10);
     } else {
-      this.sorter = new BubbleSort(numb_Elements);
+      this.sorter = new InsertionSort(numb_Elements);
     }
     this.state = 1;
     b_reset.disabled = false;

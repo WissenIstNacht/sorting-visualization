@@ -2,7 +2,8 @@
  * @author WissenIstNacht
  * Date: 
  *
- * This file 
+ * This file contains a super class that provide generic code for implementing a sorting
+ * algorithm visualization.  
  *
  */
 
@@ -18,6 +19,8 @@ class SortingAlgorithm {
     this.action = 0;
   }
 
+  /** Creates a random array for this instance of a sorting algorithm visualization.
+   */
   createRandomArray() {
     this.xs = [];
     for (let i = 1; i <= this.l; i++) {
@@ -34,10 +37,10 @@ class SortingAlgorithm {
    * 
    * Elements that are displayed as grey rectangles. However, some elements are
    * highlighted to improve visualization. This can be done by passing (0, 1 or 2) column
-   * objects to the method
+   * objects to the method.
    * 
-   * @param {Element}
-   * @param {Element}
+   * @param {ArrayElement} special_elem1 First highlighted element 
+   * @param {ArrayElement} special_elem2 Second highlighted element
    */
   render(special_elem1, special_elem2) {
     // get indices there are special elements to highlight. 
@@ -49,6 +52,7 @@ class SortingAlgorithm {
     let rect_y = height / 20;
     let rect_w = r * unit;
 
+    //draw array elements, taking into account special elements
     for (let k = 0; k < this.l; k++) {
       if (k == indx1) {
         fill(special_elem1.color);
@@ -65,6 +69,7 @@ class SortingAlgorithm {
     }
   }
 }
+
 
 class ArrayElement {
 

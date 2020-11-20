@@ -30,15 +30,18 @@ class BubbleSort extends SortingAlgorithm {
 
     switch (this.action) {
       case 0:
+        //base case - all elements gray.
         this.render(null, null);
         this.action = 1;
         break;
       case 1:
+        //selection mode - selected element colored blue.
         let se = new ArrayElement(this.indx, BLUE)
         this.render(se, null);
         this.action = 2;
         break;
       case 2:
+        // comparison mode - compared element either green/red, depending on correctness.
         if (this.a[this.indx] > this.a[this.indx + 1]) {
           let se1 = new ArrayElement(this.indx, BLUE)
           let se2 = new ArrayElement(this.indx + 1, RED)
@@ -53,9 +56,8 @@ class BubbleSort extends SortingAlgorithm {
         }
         break;
       case 3:
-        let t = this.a[this.indx];
-        this.a[this.indx] = this.a[this.indx + 1];
-        this.a[this.indx + 1] = t;
+        //confirmation mode - compared elements are in correct order.
+        this.a = swap(this.a, this.indx, this.indx + 1);
 
         let se1 = new ArrayElement(this.indx, GREEN)
         let se2 = new ArrayElement(this.indx + 1, GREEN)
