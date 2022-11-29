@@ -34,8 +34,6 @@ function setup() {
   canvasHolder = select('#canvasHolder');
   canvas = createCanvas(600, 400);
   canvas.parent(canvasHolder);
-
-  let t = new SomeClass(10);
 }
 
 function draw() {
