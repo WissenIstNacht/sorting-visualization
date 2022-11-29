@@ -6,13 +6,12 @@
  */
 
 class InsertionSort extends SortingAlgorithm {
-
   constructor(arrayLength) {
-    super(arrayLength)
+    super(arrayLength);
     this.highest = 1;
     this.indx = 1;
     this.action = 0;
-    this.done = false
+    this.done = false;
   }
 
   step() {
@@ -71,11 +70,10 @@ class InsertionSort extends SortingAlgorithm {
   }
 }
 
-
 function insertionSort(a) {
-  let n = a.length
+  let n = a.length;
   for (let i = 0; i < n; i++) {
-    console.log(a)
+    console.log(a);
     let j = i - 1;
     while (j >= 0) {
       if (a[j] > a[j + 1]) {
