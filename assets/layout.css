@@ -1,0 +1,71 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+}
+
+section {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #000;
+  background-color: #ddd;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  padding-block: 20px 10px;
+}
+
+section + section {
+  border-top: black solid 1px;
+  margin-top: 20px;
+}
+
+.flexRow {
+  display: flex;
+  gap: 10px;
+}
+
+#headSec {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#mainWrapper {
+  max-width: 940px;
+  margin-inline: auto;
+  padding-bottom: 40px;
+}
+
+#canvasContainer {
+  flex: 3;
+  padding-block: 10px;
+}
+
+#controlsContainer {
+  flex: 1;
+  padding: 10px 0 0 20px;
+}
