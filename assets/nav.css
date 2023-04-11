@@ -1,45 +1,7 @@
-nav {
-  padding-right: 20px;
-}
-
-.nav-brand {
-  position: relative;
-  float: left;
-  text-decoration: none;
-  color: #333333;
-  margin-left: 30px;
-}
-
-@media screen and (max-width: 767px) {
-  .nav-brand {
-    padding-left: 10px;
-  }
-}
-.nav-link {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  text-decoration: none;
-  color: #222222;
-  padding: 20px;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #myBanner {
   background: #dddddd;
   border-bottom: 1px solid #000;
   display: flex;
   justify-content: space-between;
-}
-
-#brandHeading {
-  margin-top: 10px;
-}
-
-@media screen and (max-width: 767px) {
-  .nav-brand {
-    padding-left: 10px;
-  }
+  height: 60px;
 }
