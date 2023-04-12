@@ -70,10 +70,6 @@ fieldset[disabled] select {
   background-color: #eeeeee;
 }
 
-select {
-  background-color: #f3f3f3;
-}
-
 select[multiple] {
   height: auto;
 }
@@ -81,4 +77,24 @@ select[multiple] {
 #buttonRow {
   padding-top: 15px;
   gap: 15px;
+}
+
+@media (prefers-color-scheme: dark) {
+  button {
+    background-color: var(--nord7);
+    color: var(--nord0);
+  }
+
+  input,
+  select {
+    color: var(--nord6);
+    background-color: var(--nord2);
+    border-color: var(--nord3);
+  }
+
+  input:focus,
+  select:focus {
+    border-color: var(--nord7);
+    outline: 0;
+  }
 }
