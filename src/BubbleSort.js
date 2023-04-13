@@ -20,7 +20,7 @@ class BubbleSort extends SortingAlgorithm {
   /** Strepwise implementation of bubblesort algorithm
    */
   step() {
-    background(255);
+    background(BG);
     scale(1, -1);
     translate(0, -height);
 

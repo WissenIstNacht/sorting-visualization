@@ -15,7 +15,7 @@ class InsertionSort extends SortingAlgorithm {
   }
 
   step() {
-    background(255);
+    background(BG);
     scale(1, -1);
     translate(0, -height);
 

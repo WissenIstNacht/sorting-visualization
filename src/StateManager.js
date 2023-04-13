@@ -13,7 +13,6 @@ class StateManager {
     this.state = 0;
     this.is_running = false;
     this.sorter = null;
-    this.BACKGROUND = color('#DEDEDE');
     frameRate(2);
   }
 
@@ -59,7 +58,7 @@ class StateManager {
     this.is_running = false;
     b_reset.disabled;
     b_run.textContent = 'Run';
-    background('white');
+    background(BG);
   }
 
   // The following methods determine the next state based on the user input and

@@ -9,6 +9,7 @@
 
 function setup() {
   s = new StateManager();
+  BG = getBackgroundColor();
   RED = color(255, 152, 178);
   GREEN = color(152, 255, 204);
   BLUE = color(152, 229, 255);
@@ -34,10 +35,18 @@ function setup() {
   canvasHolder = select('#canvasHolder');
   canvas = createCanvas(600, 400);
   canvas.parent(canvasHolder);
+  background(BG);
 }
 
 function draw() {
   if (s.is_running) {
     s.sorter.step();
   }
+}
+
+function getBackgroundColor() {
+  const bgHex = window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches
+    ? '#434c5e'
+    : 'white';
+  return color(bgHex);
 }
