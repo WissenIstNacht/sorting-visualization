@@ -74,6 +74,11 @@ section + section {
   padding: 10px 0 0 20px;
 }
 
+canvas {
+  background-color: #ddd;
+  border: solid 1px;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     color: var(--nord6);
