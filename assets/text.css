@@ -13,12 +13,15 @@ h1 {
   line-height: 44px;
   text-orientation: center;
   margin-top: 20px;
+  letter-spacing: 0.03rem;
 }
 
 h2 {
   font-size: 30px;
   line-height: 36px;
   margin-top: 20px;
+  letter-spacing: 0.02rem;
+  letter-spacing: 0.02rem;
 }
 
 h3 {

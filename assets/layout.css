@@ -48,6 +48,15 @@ section + section {
   margin-top: 20px;
 }
 
+* + label {
+  margin-top: 0.75rem;
+}
+
+#buttonRow {
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
 .flexRow {
   display: flex;
   gap: 10px;
