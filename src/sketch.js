@@ -33,7 +33,9 @@ function setup() {
 
   //initialize canvas
   canvasHolder = select('#canvasHolder');
-  canvas = createCanvas(600, 400);
+  const {width: canvasWidth} = canvasHolder?.size();
+  const canavasHeight = (canvasWidth * 2) / 3;
+  canvas = createCanvas(canvasWidth, canavasHeight);
   canvas.parent(canvasHolder);
   background(BG);
 }

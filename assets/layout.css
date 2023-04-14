@@ -59,7 +59,11 @@ section + section {
 
 .flexRow {
   display: flex;
-  gap: 10px;
+  gap: 2.5rem;
+}
+
+.visualizationHolder {
+  padding: 0.75rem 1rem;
 }
 
 #headSec {
@@ -73,14 +77,15 @@ section + section {
   padding-bottom: 40px;
 }
 
-#canvasContainer {
+#canvasHolder {
   flex: 3;
-  padding-block: 10px;
+  aspect-ratio: 3 / 2;
 }
 
 #controlsContainer {
   flex: 1;
-  padding: 10px 0 0 20px;
+  /* necessary for variable button sizes due to runtime text change */
+  min-width: 220px;
 }
 
 canvas {
