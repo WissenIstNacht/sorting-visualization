@@ -20,8 +20,8 @@ class StateManager {
 
   idle2run() {
     let numb_Elements = document.getElementById('tf_arraySize').value;
-    // if text field is empty when run is pressed, visualization falls back to default
-    // of 10 elemensts.
+    // if text field is empty when run is pressed, visualization falls back to
+    // default of 10 elemensts.
     numb_Elements = numb_Elements === '' ? 10 : numb_Elements;
 
     let algo_type = document.getElementById('dd_form').value;

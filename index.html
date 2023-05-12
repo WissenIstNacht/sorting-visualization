@@ -61,60 +61,67 @@
         <section id="aboutSec">
           <div>
             <h2>About</h2>
-            <p>This page visualizes how various sorting algorithm work.</p>
-            <h3>Bubble Sort</h3>
             <p>
-              Bubblesort works in passes through the structure that holds the
-              elements. During a pass, the algorithm starts at one end (let's
-              say the left end) and works its way through each position of the
-              structure. At each position, it tests whether the current element
-              and its neighbor are correctly ordered. If that is not the case,
-              the elements are swapped.
+              This page visualizes how various sorting algorithm work. Change
+              the algorithm in the dropdown menu to see its description.
             </p>
-            <p>
-              Note that after the first pass, the largest element will be at the
-              very right, where it belongs. This is true because at each
-              position, the larger of both elements is either on the right, or
-              it gets swapped (to the right). At some point during the first
-              pass, the largest element must be swapped with some neighbour on
-              its right (unless it already happens to be the right-most
-              element). This then repeats. The largest element will swap
-              position with each of the remaining element, as they will all be
-              smaller. It doesn so until it reaches the right-most position.
-            </p>
-            <p>
-              These procedure is then repeated. In the second pass, the second
-              largest element will end up being the second to last element on
-              the right, etc. Note that each pass is one element shorter than
-              the previous one. Since after the i-th pass, the i-th largest
-              element is correctly placed i positions from the right, they no
-              longer need to be compared.
-            </p>
-            <p>
-              This notion of letting the largest elements incrementally rise to
-              their correct place to the right is what gives the algorithm its
-              name. The largest elements "bubble up" through the structure at
-              every pass.
-            </p>
-            <h3>Insertion Sort</h3>
-            <p>
-              As the name suggests, insertion sort looks at every element in a
-              structure and, one by one, "inserts" these elements in the right
-              place.
-            </p>
-            <p>
-              The way an element is inserted is simple. Assuming a sorting from
-              left to right, an element is swapped with a left neighbors for as
-              long as it is smaller than that left neighbor. For any given
-              element, this will move it to a spot where it is correctly placed.
-              I.e., where it has a smaller neighbor to its left.
-            </p>
-            <p>
-              Doing this with each element will result in a structure where each
-              element is as left as possible. Or in other words, every element
-              has only smaller elements to the left. The array is therefore
-              sorted.
-            </p>
+            <div id="bubbleSortDescription" class="description">
+              <h3>Bubble Sort</h3>
+              <p>
+                Bubblesort works in passes through the structure that holds the
+                elements. During a pass, the algorithm starts at one end (let's
+                say the left end) and works its way through each position of the
+                structure. At each position, it tests whether the current
+                element and its neighbor are correctly ordered. If that is not
+                the case, the elements are swapped.
+              </p>
+              <p>
+                Note that after the first pass, the largest element will be at
+                the very right, where it belongs. This is true because at each
+                position, the larger of both elements is either on the right, or
+                it gets swapped (to the right). At some point during the first
+                pass, the largest element must be swapped with some neighbour on
+                its right (unless it already happens to be the right-most
+                element). This then repeats. The largest element will swap
+                position with each of the remaining element, as they will all be
+                smaller. It doesn so until it reaches the right-most position.
+              </p>
+              <p>
+                These procedure is then repeated. In the second pass, the second
+                largest element will end up being the second to last element on
+                the right, etc. Note that each pass is one element shorter than
+                the previous one. Since after the i-th pass, the i-th largest
+                element is correctly placed i positions from the right, they no
+                longer need to be compared.
+              </p>
+              <p>
+                This notion of letting the largest elements incrementally rise
+                to their correct place to the right is what gives the algorithm
+                its name. The largest elements "bubble up" through the structure
+                at every pass.
+              </p>
+            </div>
+            <div id="insertionSortDescription" class="description" hidden>
+              <h3>Insertion Sort</h3>
+              <p>
+                As the name suggests, insertion sort looks at every element in a
+                structure and, one by one, "inserts" these elements in the right
+                place.
+              </p>
+              <p>
+                The way an element is inserted is simple. Assuming a sorting
+                from left to right, an element is swapped with a left neighbors
+                for as long as it is smaller than that left neighbor. For any
+                given element, this will move it to a spot where it is correctly
+                placed. I.e., where it has a smaller neighbor to its left.
+              </p>
+              <p>
+                Doing this with each element will result in a structure where
+                each element is as left as possible. Or in other words, every
+                element has only smaller elements to the left. The array is
+                therefore sorted.
+              </p>
+            </div>
           </div>
         </section>
       </div>

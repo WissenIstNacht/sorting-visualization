@@ -1,8 +1,8 @@
 /**
  * @author WissenIstNacht
  *
- * This file contains the InsertionSort class. It implements the bubblesort algorithm in a
- * series of steps that can be visualized.
+ * This file contains the InsertionSort class. It implements the bubblesort
+ * algorithm in a series of steps that can be visualized.
  */
 
 class InsertionSort extends SortingAlgorithm {
@@ -35,7 +35,8 @@ class InsertionSort extends SortingAlgorithm {
         this.action = 2;
         break;
       case 2:
-        // comparison mode - compared element either green/red, depending on correctness.
+        // comparison mode - compared element either green/red, depending on
+        // correctness.
         if (this.a[this.indx - 1] > this.a[this.indx]) {
           let se1 = new ArrayElement(this.indx, BLUE);
           let se2 = new ArrayElement(this.indx - 1, RED);

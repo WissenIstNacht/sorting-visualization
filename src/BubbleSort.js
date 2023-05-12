@@ -2,13 +2,14 @@
  * @author WissenIstNacht
  * Date: 25-02-2020
  *
- * This file contains the BubbleSort class. It implements the bubblesort algorithm in a
- * series of steps that can be visualized.
+ * This file contains the BubbleSort class. It implements the bubblesort
+ * algorithm in a series of steps that can be visualized.
  */
 
 class BubbleSort extends SortingAlgorithm {
-  // After pass i, the largest element of the unsorted part is guaranteed to be at the
-  // i-th rightest index. Lowest denotes the currently lowest correctly placed element.
+  // After pass i, the largest element of the unsorted part is guaranteed to be
+  // at the i-th rightest index. Lowest denotes the currently lowest correctly
+  // placed element.
   // I.e., lowest == this.l - i, where i are the passes starting at 0.
   constructor(arrayLength) {
     super(arrayLength);
@@ -40,7 +41,8 @@ class BubbleSort extends SortingAlgorithm {
         this.action = 2;
         break;
       case 2:
-        // comparison mode - compared element either green/red, depending on correctness.
+        // comparison mode - compared element either green/red, depending on
+        // correctness.
         if (this.a[this.indx] > this.a[this.indx + 1]) {
           let se1 = new ArrayElement(this.indx, BLUE);
           let se2 = new ArrayElement(this.indx + 1, RED);

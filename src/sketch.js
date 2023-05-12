@@ -26,10 +26,35 @@ function setup() {
   };
   b_reset.disabled = true;
 
-  rb_automatic = select('#rb_automatic');
-  rb_manual = select('#rb_manual');
-  dd_algo = select('#dd_algo');
-  in_arrayLength = select('#in_arrayLength');
+  dd_form = document.getElementById('dd_form');
+  dd_form.addEventListener('change', ev => {
+    let descriptions = document.getElementsByClassName('description');
+
+    function itemHiding(item, descriptionType) {
+      let isSelected = item.id === descriptionType;
+      if (isSelected) {
+        item.removeAttribute('hidden');
+      } else {
+        item.setAttribute('hidden', true);
+      }
+    }
+
+    switch (ev.target.value) {
+      case 'bubbleSort':
+        for (let i = 0; i < descriptions.length; i++) {
+          itemHiding(descriptions.item(i), 'bubbleSortDescription');
+        }
+        break;
+      case 'insertionSort':
+        for (let i = 0; i < descriptions.length; i++) {
+          itemHiding(descriptions.item(i), 'insertionSortDescription');
+        }
+        break;
+      // Add cases for new algorithms.
+      default:
+        break;
+    }
+  });
 
   //initialize canvas
   canvasHolder = select('#canvasHolder');

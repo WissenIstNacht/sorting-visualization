@@ -2,8 +2,8 @@
  * @author WissenIstNacht
  * Date:
  *
- * This file contains a super class that provide generic code for implementing a sorting
- * algorithm visualization.
+ * This file contains a super class that provide generic code for implementing a
+ * sorting algorithm visualization.
  *
  */
 
@@ -18,7 +18,8 @@ class SortingAlgorithm {
     this.action = 0;
   }
 
-  /** Creates a random array for this instance of a sorting algorithm visualization.
+  /** Creates a random array for this instance of a sorting algorithm
+   *  visualization.
    */
   createRandomArray() {
     this.xs = [];
@@ -35,8 +36,8 @@ class SortingAlgorithm {
   /** Draws the rectangles representing the elements on the canvas.
    *
    * Elements that are displayed as grey rectangles. However, some elements are
-   * highlighted to improve visualization. This can be done by passing (0, 1 or 2) column
-   * objects to the method.
+   * highlighted to improve visualization. This can be done by passing (0, 1 or
+   * 2) column objects to the method.
    *
    * @param {ArrayElement} special_elem1 First highlighted element
    * @param {ArrayElement} special_elem2 Second highlighted element
