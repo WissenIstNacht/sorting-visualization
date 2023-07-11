@@ -42,9 +42,11 @@ export class InitialState extends State {
   }
 
   draw(s: p5): void {
+    const text = "Press 'Run'\n to start the animation";
+    s.fill(getColor(s, 'fg'));
     s.background(getColor(s, 'bg'));
-    s.color(0, 0, 0);
-    s.text('Press Run to Start the animation.', 100, 100);
+    s.textSize(24).textAlign('center').textStyle('bold');
+    s.text(text, s.width / 2, s.height / 3);
   }
 
   toString() {

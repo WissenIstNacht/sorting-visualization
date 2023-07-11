@@ -15,9 +15,11 @@ import {InitialState} from './state';
 import {getColor} from './util';
 
 export const sortAnimation = (s: p5) => {
-  const stateManager = new StateManager(new InitialState());
+  let stateManager: StateManager;
+
   s.setup = () => {
     // initialize inputs
+    stateManager = new StateManager(new InitialState());
     inputs.bRun.onclick = () => {
       stateManager.changeState('run');
     };
