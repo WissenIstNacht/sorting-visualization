@@ -8,23 +8,34 @@
  * press of a button and the current state.
  */
 
-class StateManager {
+import {BubbleSort} from './bubbleSort';
+import {InsertionSort} from './insertionSort';
+import {inputs} from './main';
+import {SortingAlgorithm} from './sortingAlgorithm';
+
+export class StateManager {
+  state: number;
+  isRunning: boolean;
+  sorter: SortingAlgorithm | null;
+
   constructor() {
     this.state = 0;
-    this.is_running = false;
+    this.isRunning = false;
     this.sorter = null;
-    frameRate(2);
   }
 
   // The following methods change the page's state
 
   idle2run() {
-    let numb_Elements = document.getElementById('tf_arraySize').value;
+    const tfArraySize = document.getElementById(
+      'tf_arraySize'
+    ) as HTMLInputElement;
     // if text field is empty when run is pressed, visualization falls back to
     // default of 10 elemensts.
-    numb_Elements = numb_Elements === '' ? 10 : numb_Elements;
+    const numb_Elements = parseInt(tfArraySize.value ?? '10') ?? 10;
 
-    let algo_type = document.getElementById('dd_form').value;
+    const ddAlgorithm = document.getElementById('dd_form') as HTMLSelectElement;
+    const algo_type = ddAlgorithm.value;
     switch (algo_type) {
       case 'bubbleSort':
         this.sorter = new BubbleSort(numb_Elements);
@@ -36,29 +47,28 @@ class StateManager {
         break;
     }
     this.state = 1;
-    b_reset.disabled = false;
-    this.is_running = true;
-    b_run.textContent = 'Pause';
+    inputs.bReset.disabled = false;
+    this.isRunning = true;
+    inputs.bRun.textContent = 'Pause';
   }
 
   run2pause() {
     this.state = 2;
-    this.is_running = false;
-    b_run.textContent = 'Continue';
+    this.isRunning = false;
+    inputs.bRun.textContent = 'Continue';
   }
 
   pause2run() {
     this.state = 1;
-    this.is_running = true;
-    b_run.textContent = 'Pause';
+    this.isRunning = true;
+    inputs.bRun.textContent = 'Pause';
   }
 
   any2idle() {
     this.state = 0;
-    this.is_running = false;
-    b_reset.disabled;
-    b_run.textContent = 'Run';
-    background(BG);
+    this.isRunning = false;
+    inputs.bReset.disabled;
+    inputs.bRun.textContent = 'Run';
   }
 
   // The following methods determine the next state based on the user input and

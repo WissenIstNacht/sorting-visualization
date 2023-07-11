@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/p5": "^1.6.2",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -17,6 +18,7 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "normalize.css": "8.0.1"
+    "normalize.css": "8.0.1",
+    "p5": "1.6.0"
   }
 }

@@ -6,71 +6,79 @@
  * algorithm in a series of steps that can be visualized.
  */
 
-class BubbleSort extends SortingAlgorithm {
+import p5 from 'p5';
+import {ArrayElement, SortingAlgorithm} from './sortingAlgorithm';
+import {getColor} from './util';
+
+export class BubbleSort extends SortingAlgorithm {
   // After pass i, the largest element of the unsorted part is guaranteed to be
   // at the i-th rightest index. Lowest denotes the currently lowest correctly
   // placed element.
   // I.e., lowest == this.l - i, where i are the passes starting at 0.
-  constructor(arrayLength) {
+  lowest: number;
+  index: number;
+  action: number;
+
+  constructor(arrayLength: number) {
     super(arrayLength);
-    this.lowest = this.l;
-    this.indx = 0;
+    this.lowest = this.length;
+    this.index = 0;
     this.action = 0;
   }
 
   /** Strepwise implementation of bubblesort algorithm
    */
-  step() {
-    background(BG);
-    scale(1, -1);
-    translate(0, -height);
+  step(s: p5) {
+    s.background(getColor(s, 'bg'));
+    s.scale(1, -1);
+    s.translate(0, -s.height);
 
-    fill(200);
-    strokeWeight(2);
+    s.fill(200);
+    s.strokeWeight(2);
 
     switch (this.action) {
       case 0:
         //base case - all elements gray.
-        this.render(null, null);
+        this.render(s);
         this.action = 1;
         break;
       case 1:
         //selection mode - selected element colored blue.
-        let se = new ArrayElement(this.indx, BLUE);
-        this.render(se, null);
+        let se = new ArrayElement(this.index, getColor(s, 'blue'));
+        this.render(s, se);
         this.action = 2;
         break;
       case 2:
         // comparison mode - compared element either green/red, depending on
         // correctness.
-        if (this.a[this.indx] > this.a[this.indx + 1]) {
-          let se1 = new ArrayElement(this.indx, BLUE);
-          let se2 = new ArrayElement(this.indx + 1, RED);
-          this.render(se1, se2);
+        if (this.array[this.index] > this.array[this.index + 1]) {
+          let se1 = new ArrayElement(this.index, getColor(s, 'blue'));
+          let se2 = new ArrayElement(this.index + 1, getColor(s, 'red'));
+          this.render(s, se1, se2);
           this.action = 3;
         } else {
-          let se1 = new ArrayElement(this.indx, BLUE);
-          let se2 = new ArrayElement(this.indx + 1, GREEN);
-          this.render(se1, se2);
+          let se1 = new ArrayElement(this.index, getColor(s, 'blue'));
+          let se2 = new ArrayElement(this.index + 1, getColor(s, 'green'));
+          this.render(s, se1, se2);
           this.action = 0;
-          this.indx++;
+          this.index++;
         }
         break;
       case 3:
         //confirmation mode - compared elements are in correct order.
-        this.a = swap(this.a, this.indx, this.indx + 1);
+        this.array = swap(this.array, this.index, this.index + 1);
 
-        let se1 = new ArrayElement(this.indx, GREEN);
-        let se2 = new ArrayElement(this.indx + 1, GREEN);
-        this.render(se1, se2);
+        let se1 = new ArrayElement(this.index, getColor(s, 'green'));
+        let se2 = new ArrayElement(this.index + 1, getColor(s, 'green'));
+        this.render(s, se1, se2);
         this.action = 0;
-        this.indx++;
+        this.index++;
         break;
       default:
         break;
     }
-    if (this.indx == this.lowest - 1) {
-      this.indx = 0;
+    if (this.index == this.lowest - 1) {
+      this.index = 0;
       this.lowest--;
     }
   }
@@ -82,7 +90,7 @@ class BubbleSort extends SortingAlgorithm {
  *
  * @returns {array} sorted array.
  */
-function bubbleSort(a) {
+function bubbleSort<T>(a: T[]) {
   for (let j = 0; j < a.length; j++) {
     for (let i = 0; i < a.length - j - 1; i++) {
       if (a[i] > a[i + 1]) {
@@ -101,7 +109,7 @@ function bubbleSort(a) {
  *
  * @returns {array} sorted array.
  */
-function swap(a, i, j) {
+export function swap<T>(a: T[], i: number, j: number) {
   let t = a[i];
   a[i] = a[j];
   a[j] = t;
