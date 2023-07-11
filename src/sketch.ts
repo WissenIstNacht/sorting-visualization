@@ -11,21 +11,21 @@ import p5 from 'p5';
 
 import {StateManager} from './StateManager';
 import {inputs} from './main';
+import {InitialState} from './state';
 import {getColor} from './util';
 
 export const sortAnimation = (s: p5) => {
-  const stateManager = new StateManager();
+  const stateManager = new StateManager(new InitialState());
   s.setup = () => {
     // initialize inputs
     inputs.bRun.onclick = () => {
-      stateManager.pressedRun();
+      stateManager.changeState('run');
     };
 
     inputs.bReset.onclick = () => {
-      stateManager.pressedReset();
+      stateManager.changeState('reset');
     };
     inputs.bReset.disabled = true;
-
     inputs.ddAlgorithm.addEventListener('change', ev => {
       let descriptions = document.getElementsByClassName('description');
 
@@ -69,8 +69,6 @@ export const sortAnimation = (s: p5) => {
   };
 
   s.draw = () => {
-    if (stateManager.isRunning) {
-      stateManager.sorter?.step(s);
-    }
+    stateManager.currState.draw(s);
   };
 };
