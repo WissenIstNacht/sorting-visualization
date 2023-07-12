@@ -22,7 +22,6 @@ body {
     sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333;
 }
 
 section {
@@ -48,21 +47,16 @@ section + section {
   margin-top: 20px;
 }
 
-* + label {
-  margin-top: 0.75rem;
-}
-
-#buttonRow {
-  padding-top: 1rem;
+.buttonRow {
   gap: 1rem;
 }
 
 .flexRow {
   display: flex;
-  gap: 2.5rem;
 }
 
 .visualizationHolder {
+  gap: 2.5rem;
   padding: 0.75rem 1rem;
 }
 
@@ -82,10 +76,16 @@ section + section {
   aspect-ratio: 3 / 2;
 }
 
-#controlsContainer {
-  flex: 1;
-  /* necessary for variable button sizes due to runtime text change */
-  min-width: 220px;
+.controlsConter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.controlField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 canvas {
