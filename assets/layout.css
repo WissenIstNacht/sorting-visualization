@@ -76,10 +76,15 @@ section + section {
   aspect-ratio: 3 / 2;
 }
 
-.controlsConter {
+.controlsContainer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.minWidthControls {
+  /* necessary for variable button sizes due to runtime text change */
+  min-width: 220px;
 }
 
 .controlField {
