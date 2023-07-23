@@ -1,6 +1,2 @@
-@import 'nord.css';
 @import 'normalize.css';
-@import 'text.css';
-@import 'layout.css';
-@import 'nav.css';
-@import 'controls.css';
+@import 'p5-vis.css';

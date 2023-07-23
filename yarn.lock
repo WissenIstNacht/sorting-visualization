@@ -709,6 +709,11 @@ p-locate@^5.0.0:
   dependencies:
     p-limit "^3.0.2"
 
+p5-vis.css@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/p5-vis.css/-/p5-vis.css-1.0.3.tgz#58f9ca107f6ce3d6373f5178db594befe116dfcf"
+  integrity sha512-kyGysRyqMi0NHxLDo9LJBfsm/vst6ZWn86kaII8NDFdeipWHq74I4gMv1u0pDWCnEB3Qqx4Y/EC8qPhH7asslA==
+
 p5@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/p5/-/p5-1.6.0.tgz#eaf4e69e377d6a5e91041ca485743b0fc53d9dfb"

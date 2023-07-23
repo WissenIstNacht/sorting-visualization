@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "normalize.css": "8.0.1",
-    "p5": "1.6.0"
+    "p5": "1.6.0",
+    "p5-vis.css": "^1.0.3"
   }
 }
