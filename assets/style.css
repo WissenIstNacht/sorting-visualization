@@ -1,2 +1,21 @@
 @import 'normalize.css';
 @import 'p5-vis.css';
+
+/* Temporary modification of css for active buttons */
+
+button:active {
+  background-color: #b0b0b0;
+}
+
+/* Temporary addition of css for disabled buttons */
+
+button:disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+@media (prefers-color-scheme: dark) {
+  button:disabled {
+    background: #95a4a4;
+  }
+}

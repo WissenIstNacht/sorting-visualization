@@ -39,6 +39,7 @@ export class InitialState extends State {
   }
 
   update(): void {
+    inputs.bRun.disabled = false;
     inputs.bReset.disabled = true;
     inputs.bRun.textContent = 'Run';
   }
