@@ -5,7 +5,7 @@ import {inputs} from './main';
 import {SortingAlgorithm} from './sortingAlgorithm';
 import {getColor} from './util';
 
-export type Trigger = 'run' | 'reset';
+export type Trigger = 'run' | 'reset' | 'done';
 
 export abstract class State {
   abstract next(arg: Trigger): State;
@@ -33,6 +33,8 @@ export class InitialState extends State {
             throw new Error('Illegal algorithm input in InitialState');
         }
         return new RunningState(newSorter);
+      case 'done':
+        return new IdleState();
     }
   }
 
@@ -68,6 +70,8 @@ export class RunningState extends State {
         return new InitialState();
       case 'run':
         return new PausingState(this.sorter);
+      case 'done':
+        return new IdleState();
     }
   }
 
@@ -99,6 +103,10 @@ export class PausingState extends State {
         return new InitialState();
       case 'run':
         return new RunningState(this.sorter);
+      case 'done':
+        throw new Error(
+          'Invalid state change trigger in Pausing state: ' + arg
+        );
     }
   }
 
@@ -106,29 +114,44 @@ export class PausingState extends State {
     inputs.bRun.textContent = 'Continue';
   }
 
-  draw(s: p5): void {}
+  draw(_: p5): void {}
 
   toString() {
     return 'PausingState';
   }
 }
 
-// TODO: Add an idle state when algorithm is done running.
-// export class IdleState extends State {
-//   next(arg: Trigger): State {
-//     switch (arg) {
-//       case 'reset':
-//         return new InitialState();
-//       case 'run':
-//         throw new Error('Invalid trigger in Idle State');
-//     }
-//   }
+export class IdleState extends State {
+  firstPass = true;
 
-//   update(): void {
-//     return;
-//   }
+  next(arg: Trigger): State {
+    switch (arg) {
+      case 'reset':
+        return new InitialState();
+      case 'run':
+        throw new Error('Invalid state change trigger in Idle state: ' + arg);
+      case 'done':
+        throw new Error('Invalid state change trigger in Idle state: ' + arg);
+    }
+  }
 
-//   draw(s: p5): void {
-//     s.text('Press Run to Start the animation.', 0, 0);
-//   }
-// }
+  update(): void {
+    inputs.bRun.disabled = true;
+    inputs.bRun.innerHTML = 'Restart';
+    return;
+  }
+
+  draw(s: p5): void {
+    if (this.firstPass) {
+      //TODO: modify canvas to indicate endpp
+      s.filter(s.BLUR, 4);
+      // s.background(s.color(221, 180));
+      s.fill('black');
+      const text = "Press 'Reset'\n to start a new animation";
+      s.fill(getColor(s, 'fg'));
+      s.textSize(24).textAlign('center').textStyle('bold');
+      s.text(text, s.width / 2, s.height / 3);
+      this.firstPass = false;
+    }
+  }
+}
