@@ -90,6 +90,7 @@ export class BubbleSort extends SortingAlgorithm {
  *
  * @returns {array} sorted array.
  */
+// @ts-ignore
 function bubbleSort<T>(a: T[]) {
   for (let j = 0; j < a.length; j++) {
     for (let i = 0; i < a.length - j - 1; i++) {

@@ -81,6 +81,13 @@ export class InsertionSort extends SortingAlgorithm {
   }
 }
 
+/** Simple implementation of insertion sort.
+ *
+ * @param {array} a array that's to be sorted
+ *
+ * @returns {array} sorted array.
+ */
+// @ts-ignore
 function insertionSort<T>(a: T[]) {
   let n = a.length;
   for (let i = 0; i < n; i++) {
