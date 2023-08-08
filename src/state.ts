@@ -1,9 +1,14 @@
 import p5 from 'p5';
+
 import {BubbleSort} from './bubbleSort';
 import {InsertionSort} from './insertionSort';
 import {inputs} from './main';
 import {SortingAlgorithm} from './sortingAlgorithm';
 import {getColor} from './util';
+import {
+  AlgorithmNotImplemented,
+  InvalidStateChangeTrigger,
+} from './utils/error';
 
 export type Trigger = 'run' | 'reset' | 'done';
 
@@ -17,7 +22,7 @@ export class InitialState extends State {
   next(arg: Trigger): State {
     switch (arg) {
       case 'reset':
-        throw new Error('state not implemented');
+        throw new InvalidStateChangeTrigger(arg, this);
       case 'run':
         const numb_Elements = parseInt(inputs.tfArraySize.value ?? '10') ?? 10;
         const algo_type = inputs.ddAlgorithm.value;
@@ -30,13 +35,11 @@ export class InitialState extends State {
             newSorter = new InsertionSort(numb_Elements);
             break;
           default:
-            throw new Error('Illegal algorithm input in InitialState');
+            throw new AlgorithmNotImplemented(algo_type);
         }
         return new RunningState(newSorter);
       case 'done':
-        throw new Error(
-          'Invalid state change trigger in Pausing state: ' + arg
-        );
+        throw new InvalidStateChangeTrigger(arg, this);
     }
   }
 
@@ -107,9 +110,7 @@ export class PausingState extends State {
       case 'run':
         return new RunningState(this.sorter);
       case 'done':
-        throw new Error(
-          'Invalid state change trigger in Pausing state: ' + arg
-        );
+        throw new InvalidStateChangeTrigger(arg, this);
     }
   }
 
@@ -141,7 +142,7 @@ export class IdleState extends State {
         this.sorter.reset();
         return new RunningState(this.sorter);
       case 'done':
-        throw new Error('Invalid state change trigger in Idle state: ' + arg);
+        throw new InvalidStateChangeTrigger(arg, this);
     }
   }
 
