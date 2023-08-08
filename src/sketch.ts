@@ -75,15 +75,15 @@ export const sortAnimation = (s: p5) => {
   s.draw = () => {
     stateManager.currState.draw(s);
     if (stateManager.currState instanceof RunningState) {
-      if (stateManager.currState.sorter instanceof BubbleSort) {
-        if (stateManager.currState.sorter.lowest === 0) {
+      const currSorter = stateManager.currState.sorter;
+      if (currSorter instanceof BubbleSort) {
+        if (currSorter.lowest === 0) {
           stateManager.changeState('done');
         }
-      } else if (stateManager.currState.sorter instanceof InsertionSort) {
-        // TODO: figure out termination condition
-        // if (stateManager.currState.sorter.lowest === 0) {
-        //   stateManager.changeState('done');
-        // }
+      } else if (currSorter instanceof InsertionSort) {
+        if (currSorter.highest > currSorter.length) {
+          stateManager.changeState('done');
+        }
       }
     }
   };
