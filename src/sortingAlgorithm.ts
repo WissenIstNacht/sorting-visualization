@@ -11,36 +11,40 @@ import p5 from 'p5';
 import {getColor} from './util';
 
 export abstract class SortingAlgorithm {
+  unsortedArray: number[];
   array: number[];
   length: number;
   lowest: number;
-  index: number;
-  action: number;
 
   constructor(arrayLength: number) {
-    this.array = [];
     this.length = arrayLength;
+    this.unsortedArray = this.createRandomArray(this.length);
+    this.array = Array.from(this.unsortedArray);
 
-    this.createRandomArray();
     this.lowest = this.length;
-    this.index = 0;
-    this.action = 0;
   }
 
   /** Creates a random array for this instance of a sorting algorithm
    *  visualization.
    */
-  createRandomArray() {
+  createRandomArray(arrayLength: number): number[] {
     const xs = [];
-    for (let i = 1; i <= this.length; i++) {
+    const shuffledArray = [];
+
+    for (let i = 1; i <= arrayLength; i++) {
       xs.push(i);
     }
-    for (let i = this.length; i > 0; i--) {
-      let r = Math.floor(i * Math.random());
-      this.array.push(xs[r]);
+
+    for (let i = arrayLength; i > 0; i--) {
+      const r = Math.floor(i * Math.random());
+      shuffledArray.push(xs[r]);
       xs.splice(r, 1);
     }
+
+    return shuffledArray;
   }
+
+  abstract reset(): void;
 
   /** Draws the rectangles representing the elements on the canvas.
    *

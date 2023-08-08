@@ -34,7 +34,9 @@ export class InitialState extends State {
         }
         return new RunningState(newSorter);
       case 'done':
-        return new IdleState();
+        throw new Error(
+          'Invalid state change trigger in Pausing state: ' + arg
+        );
     }
   }
 
@@ -72,7 +74,7 @@ export class RunningState extends State {
       case 'run':
         return new PausingState(this.sorter);
       case 'done':
-        return new IdleState();
+        return new IdleState(this.sorter);
     }
   }
 
@@ -124,20 +126,27 @@ export class PausingState extends State {
 
 export class IdleState extends State {
   firstPass = true;
+  sorter: SortingAlgorithm;
+
+  constructor(s: SortingAlgorithm) {
+    super();
+    this.sorter = s;
+  }
 
   next(arg: Trigger): State {
     switch (arg) {
       case 'reset':
         return new InitialState();
       case 'run':
-        throw new Error('Invalid state change trigger in Idle state: ' + arg);
+        this.sorter.reset();
+        return new RunningState(this.sorter);
       case 'done':
         throw new Error('Invalid state change trigger in Idle state: ' + arg);
     }
   }
 
   update(): void {
-    inputs.bRun.disabled = true;
+    inputs.bRun.disabled = false;
     inputs.bRun.innerHTML = 'Restart';
     return;
   }

@@ -82,6 +82,13 @@ export class BubbleSort extends SortingAlgorithm {
       this.lowest--;
     }
   }
+
+  reset(): void {
+    this.array = Array.from(this.unsortedArray);
+    this.lowest = this.length;
+    this.index = 0;
+    this.action = 0;
+  }
 }
 
 /** Simple implementation of bubblesort

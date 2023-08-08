@@ -24,6 +24,14 @@ export class InsertionSort extends SortingAlgorithm {
     this.done = false;
   }
 
+  reset(): void {
+    this.array = Array.from(this.unsortedArray);
+    this.highest = 1;
+    this.index = 1;
+    this.action = 0;
+    this.done = false;
+  }
+
   step(s: p5) {
     s.background(getColor(s, 'bg'));
     s.scale(1, -1);
