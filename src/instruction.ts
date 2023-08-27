@@ -1,4 +1,4 @@
-import {ArrayElement} from './ArrayElement';
+import {ArrayElement} from './arrayElement';
 
 export type Operation =
   | 'SELECT_ITEM'
