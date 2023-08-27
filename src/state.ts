@@ -37,6 +37,7 @@ export class InitialState extends State {
           default:
             throw new AlgorithmNotImplemented(algo_type);
         }
+        newSorter.sort();
         return new RunningState(newSorter);
       case 'done':
         throw new InvalidStateChangeTrigger(arg, this);
@@ -87,7 +88,8 @@ export class RunningState extends State {
   }
 
   draw(s: p5): void {
-    this.sorter.step(s);
+    this.sorter.step();
+    this.sorter.render(s);
   }
 
   toString() {
@@ -154,7 +156,6 @@ export class IdleState extends State {
 
   draw(s: p5): void {
     if (this.firstPass) {
-      //TODO: modify canvas to indicate endpp
       s.filter(s.BLUR, 4);
       // s.background(s.color(221, 180));
       s.fill('black');

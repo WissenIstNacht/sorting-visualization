@@ -8,20 +8,27 @@
  */
 
 import p5 from 'p5';
+
+import {ArrayElement} from './ArrayElement';
+import {Instruction} from './instruction';
 import {getColor} from './util';
 
 export abstract class SortingAlgorithm {
   unsortedArray: number[];
   array: number[];
   length: number;
-  lowest: number;
+  currArray: ArrayElement[];
+  instructions: Instruction[];
+  instructionsPointer: number;
 
   constructor(arrayLength: number) {
     this.length = arrayLength;
     this.unsortedArray = this.createRandomArray(this.length);
     this.array = Array.from(this.unsortedArray);
 
-    this.lowest = this.length;
+    this.currArray = this.unsortedArray.map(v => new ArrayElement(v));
+    this.instructions = [];
+    this.instructionsPointer = 0;
   }
 
   /** Creates a random array for this instance of a sorting algorithm
@@ -44,7 +51,12 @@ export abstract class SortingAlgorithm {
     return shuffledArray;
   }
 
-  abstract reset(): void;
+  abstract sort(): void;
+
+  reset(): void {
+    this.currArray = this.unsortedArray.map(v => new ArrayElement(v));
+    this.instructionsPointer = 0;
+  }
 
   /** Draws the rectangles representing the elements on the canvas.
    *
@@ -55,48 +67,57 @@ export abstract class SortingAlgorithm {
    * @param {ArrayElement} special_elem1 First highlighted element
    * @param {ArrayElement} special_elem2 Second highlighted element
    */
-  render(s: p5, special_elem1?: ArrayElement, special_elem2?: ArrayElement) {
-    // get indices if there are special elements to highlight.
-    let index1 = special_elem1 ? special_elem1.index : -1;
-    let index2 = special_elem2 ? special_elem2.index : -1;
+  render(s: p5) {
+    s.background(getColor(s, 'bg'));
+    s.scale(1, -1);
+    s.translate(0, -s.height);
 
-    let r = 4;
-    let unit = (s.width * 0.9) / (this.length * (r + 1) - 1);
-    let rect_y = s.height / 20;
-    let rect_w = r * unit;
+    s.fill(200);
+    s.strokeWeight(2);
 
-    //draw array elements, taking into account special elements
+    const r = 4;
+    const horizontalUnit = (s.width * 0.9) / (this.length * (r + 1) - 1);
+    const verticalUnit = s.height / 20;
+    const rect_y = verticalUnit;
+    const rect_w = r * horizontalUnit;
+
     for (let k = 0; k < this.length; k++) {
-      if (k == index1) {
-        s.fill(special_elem1?.color || getColor(s, 'bg'));
-      } else if (k == index2) {
-        s.fill(special_elem2?.color || getColor(s, 'bg'));
-      } else if (k >= this.lowest) {
-        s.fill(getColor(s, 'green'));
-      } else {
-        s.fill(200);
+      const ae = this.currArray[k];
+
+      let color: p5.Color;
+      switch (ae.state) {
+        case 'NEUTRAL':
+          color = s.color(200);
+          break;
+        case 'NEUTRAL_SELECT':
+          color = getColor(s, 'blue');
+          break;
+        case 'COMPARE_SELECT':
+          color = getColor(s, 'blue');
+          break;
+        case 'CORRECT_SELECT':
+          color = getColor(s, 'green');
+          break;
+        case 'FALSE_SELECT':
+          color = getColor(s, 'red');
+          break;
       }
-      let rect_x = s.width / 20 + k * (r + 1) * unit;
-      let rect_h = s.map(
-        this.array[k],
+
+      const rect_x = s.width / 20 + k * (r + 1) * horizontalUnit;
+      const rect_h = s.map(
+        ae.value,
         1,
         this.length,
-        s.height / 20,
-        (9 * s.height) / 10
+        verticalUnit,
+        18 * verticalUnit
       );
+      s.fill(color);
       s.rect(rect_x, rect_y, rect_w, rect_h);
     }
   }
 
-  abstract step(s: p5): void;
-}
-
-export class ArrayElement {
-  index: number;
-  color: p5.Color;
-
-  constructor(index: number, color: p5.Color) {
-    this.index = index;
-    this.color = color;
+  step(): void {
+    this.instructions[this.instructionsPointer].apply(this.currArray);
+    this.instructionsPointer += 1;
   }
 }

@@ -10,8 +10,6 @@
 import p5 from 'p5';
 
 import {StateManager} from './StateManager';
-import {BubbleSort} from './bubbleSort';
-import {InsertionSort} from './insertionSort';
 import {inputs} from './main';
 import {InitialState, RunningState} from './state';
 import {getColor} from './util';
@@ -76,14 +74,8 @@ export const sortAnimation = (s: p5) => {
     stateManager.currState.draw(s);
     if (stateManager.currState instanceof RunningState) {
       const currSorter = stateManager.currState.sorter;
-      if (currSorter instanceof BubbleSort) {
-        if (currSorter.lowest === 0) {
-          stateManager.changeState('done');
-        }
-      } else if (currSorter instanceof InsertionSort) {
-        if (currSorter.highest > currSorter.length) {
-          stateManager.changeState('done');
-        }
+      if (currSorter.instructionsPointer === currSorter.instructions.length) {
+        stateManager.changeState('done');
       }
     }
   };

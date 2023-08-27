@@ -6,88 +6,33 @@
  * algorithm in a series of steps that can be visualized.
  */
 
-import p5 from 'p5';
-import {ArrayElement, SortingAlgorithm} from './sortingAlgorithm';
-import {getColor} from './util';
+import {Instruction} from './instruction';
+import {SortingAlgorithm} from './sortingAlgorithm';
 
 export class BubbleSort extends SortingAlgorithm {
-  // After pass i, the largest element of the unsorted part is guaranteed to be
-  // at the i-th rightest index. Lowest denotes the currently lowest correctly
-  // placed element.
-  // I.e., lowest == this.l - i, where i are the passes starting at 0.
-  lowest: number;
-  index: number;
-  action: number;
-
   constructor(arrayLength: number) {
     super(arrayLength);
-    this.lowest = this.length;
-    this.index = 0;
-    this.action = 0;
   }
 
-  /** Strepwise implementation of bubblesort algorithm
-   */
-  step(s: p5) {
-    s.background(getColor(s, 'bg'));
-    s.scale(1, -1);
-    s.translate(0, -s.height);
+  sort() {
+    let a = this.array;
 
-    s.fill(200);
-    s.strokeWeight(2);
-
-    switch (this.action) {
-      case 0:
-        //base case - all elements gray.
-        this.render(s);
-        this.action = 1;
-        break;
-      case 1:
-        //selection mode - selected element colored blue.
-        let se = new ArrayElement(this.index, getColor(s, 'blue'));
-        this.render(s, se);
-        this.action = 2;
-        break;
-      case 2:
-        // comparison mode - compared element either green/red, depending on
-        // correctness.
-        if (this.array[this.index] > this.array[this.index + 1]) {
-          let se1 = new ArrayElement(this.index, getColor(s, 'blue'));
-          let se2 = new ArrayElement(this.index + 1, getColor(s, 'red'));
-          this.render(s, se1, se2);
-          this.action = 3;
+    for (let j = 0; j < a.length; j++) {
+      for (let i = 0; i < a.length - j - 1; i++) {
+        this.instructions.push(new Instruction(i, i, 'SELECT_ITEM'));
+        this.instructions.push(new Instruction(i, i + 1, 'SELECT_COMPARE'));
+        if (a[i] > a[i + 1]) {
+          this.instructions.push(new Instruction(i, i + 1, 'ORDER_WRONG'));
+          a = swap(a, i, i + 1);
+          this.instructions.push(new Instruction(i, i + 1, 'SWAP'));
         } else {
-          let se1 = new ArrayElement(this.index, getColor(s, 'blue'));
-          let se2 = new ArrayElement(this.index + 1, getColor(s, 'green'));
-          this.render(s, se1, se2);
-          this.action = 0;
-          this.index++;
+          this.instructions.push(new Instruction(i, i + 1, 'ORDER_CORRECT'));
         }
-        break;
-      case 3:
-        //confirmation mode - compared elements are in correct order.
-        this.array = swap(this.array, this.index, this.index + 1);
-
-        let se1 = new ArrayElement(this.index, getColor(s, 'green'));
-        let se2 = new ArrayElement(this.index + 1, getColor(s, 'green'));
-        this.render(s, se1, se2);
-        this.action = 0;
-        this.index++;
-        break;
-      default:
-        break;
+        this.instructions.push(new Instruction(i, i + 1, 'UNSELECT_ITEM'));
+      }
+      this.instructions.push(new Instruction(a.length - j - 1, 0, 'ITEM_DONE'));
     }
-    if (this.index == this.lowest - 1) {
-      this.index = 0;
-      this.lowest--;
-    }
-  }
-
-  reset(): void {
-    this.array = Array.from(this.unsortedArray);
-    this.lowest = this.length;
-    this.index = 0;
-    this.action = 0;
+    this.instructions.push(new Instruction(0, 0, 'ALL_DONE'));
   }
 }
 
