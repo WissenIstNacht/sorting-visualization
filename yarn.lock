@@ -407,7 +407,7 @@ eslint-visitor-keys@^3.4.1, eslint-visitor-keys@^3.4.3:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.4.3.tgz#0cd72fe8550e3c2eae156a96a4dddcd1c8ac5800"
   integrity sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==
 
-eslint@8.49.0:
+eslint@^8.49.0:
   version "8.49.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.49.0.tgz#09d80a89bdb4edee2efcf6964623af1054bf6d42"
   integrity sha512-jw03ENfm6VJI0jA9U+8H5zfl5b+FvuU3YYvZRdZHOlU2ggJkxrlkJH4HcDrZpj6YwD8kuYqvQM8LyesoazrSOQ==
@@ -867,10 +867,10 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-p5-vis.css@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/p5-vis.css/-/p5-vis.css-1.0.3.tgz#58f9ca107f6ce3d6373f5178db594befe116dfcf"
-  integrity sha512-kyGysRyqMi0NHxLDo9LJBfsm/vst6ZWn86kaII8NDFdeipWHq74I4gMv1u0pDWCnEB3Qqx4Y/EC8qPhH7asslA==
+p5-vis.css@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/p5-vis.css/-/p5-vis.css-1.4.0.tgz#d1fc5cb2c5ebd243a870cdf6be041e60be3c7933"
+  integrity sha512-x4mqiHCmq75qB6VEDFKwiQH5qePhOPp+LxsPUOQa4WBZlwiXnmzcwzAOO9v3dhQrWTis/rnsQfQ0vuu2P+OzAw==
 
 p5@1.6.0:
   version "1.6.0"
